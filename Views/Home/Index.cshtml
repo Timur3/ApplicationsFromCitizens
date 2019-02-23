@@ -1,0 +1,139 @@
+﻿@model ApplicationFormViewModel;
+
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.ErrorMessage = Model.ListError;
+    ViewBag.SuccessAction = Model.MessageSuccess;
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+<div class="alert alert-dismissable alert-warning">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Обратите внимание</strong> <br /> Необходимо заполнить следующие поля
+</div>
+<hr />  
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" id="ApplicationForm">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationForm.GetAnswerListId, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></span>
+                    @Html.DropDownListFor(model => model.ApplicationForm.GetAnswerListId, Model.GetAnswerList, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationForm.Email, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+                    @Html.EditorFor(model => model.ApplicationForm.Email, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationForm.FamilyName, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                    @Html.EditorFor(model => model.ApplicationForm.FamilyName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationForm.Name, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                    @Html.EditorFor(model => model.ApplicationForm.Name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationForm.MiddleName, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                    @Html.EditorFor(model => model.ApplicationForm.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationForm.Mobile, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></span>
+                    @Html.EditorFor(model => model.ApplicationForm.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationForm.SocialStatusId, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                    @Html.DropDownListFor(model => model.ApplicationForm.SocialStatusId, Model.GetSocialStatusList, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationForm.Message, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.ApplicationForm.Message, new { @class = "form-control", @rows = 12 })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Treatment.Attachment, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-4">                
+                <div class="input-group">*@
+                    @*@Html.EditorFor(model => model.Treatment.Attachment, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @*<span class="input-group-btn">
+                        <input type="file" title="Выбрать файл" value="Обзор" class="form-control"/>
+                    </span>
+                </div>
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-7">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="cbRegistrationUser" /> Даю своё согласие на обработку персональных данных в соответствии <br /> с Федеральным законом Российской Федерации <br /> от 27 июля 2006 г. N 152-ФЗ "О персональных данных"
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-7">
+                <input type="submit" id="buttonTreatment" value="Направить обращение" class="btn btn-primary" disabled />
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-12 text-center">
+                <label>
+                    Возникли вопросы, пишите: <a href="mailto:asu@mp-ges.ru">asu@mp-ges.ru</a>
+                </label>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+        <script src="~/js/Treatment.js"></script>
+    }
