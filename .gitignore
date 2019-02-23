@@ -10,3 +10,5 @@ Connections.config
 Backup/
 *.FileListAbsolute.txt
 appsettings.json
+node_modules/
+wwwroot/
