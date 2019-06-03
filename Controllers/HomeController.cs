@@ -70,7 +70,7 @@ namespace ApplicationsFromCitizens.Controllers
                             $" <b>Адресной электронной почты:</b> {m.ApplicationForm.Email} <br>" +
                             $" <b>Телефон или сотовый:</b> {m.ApplicationForm.Mobile} <br>" +
                             $" <b>Текст обращения:</b> {m.ApplicationForm.Message}";
-                        _sendMail.SendCustom(sub, bodyMail, email);
+                        _sendMail.SendCustom(sub, bodyMail, email, m.ApplicationForm.Email);
 
                         return RedirectToAction("Result");
                     }

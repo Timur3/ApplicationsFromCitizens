@@ -20,10 +20,11 @@ namespace Helpers
         /// <param name="subject"></param>
         /// <param name="bodyMail"></param>
         /// <param name="email"></param>
-        public void SendCustom(string subject, string bodyMail, string email)
+        /// <param name="replyTo"></param>
+        public void SendCustom(string subject, string bodyMail, string email, string replyTo)
         {
-            MailMessage Mail = new MailMessage();
-            SmtpClient Client = new SmtpClient
+            MailMessage mail = new MailMessage();
+            SmtpClient client = new SmtpClient
             {
                 Host = _smtpSettings.Host,
                 EnableSsl = _smtpSettings.EnableSsl,
@@ -32,13 +33,16 @@ namespace Helpers
             };
 
             // Отправляем письмо различной тематикой
-            Mail.From = new MailAddress("noreply@mp-ges.ru");
-            Mail.To.Add(email);
-            Mail.Subject = subject;
-            Mail.Body = bodyMail;
-            Mail.IsBodyHtml = true;
-            Mail.Priority = MailPriority.High;
-            Client.Send(Mail);
+            mail.From = new MailAddress("noreply@mp-ges.ru");
+            mail.To.Add(email);
+            mail.ReplyToList.Add(replyTo);
+            MailAddress hcc = new MailAddress("asu@mp-ges.ru");
+            mail.Bcc.Add(hcc);
+            mail.Subject = subject;
+            mail.Body = bodyMail;
+            mail.IsBodyHtml = true;
+            mail.Priority = MailPriority.High;
+            client.Send(mail);
         }
 
         public static void SendPaytNew()
