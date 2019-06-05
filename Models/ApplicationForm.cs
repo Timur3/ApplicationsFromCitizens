@@ -37,6 +37,8 @@ namespace ApplicationsFromCitizens.Models
         [Display(Name = "Социальное положение")]
         public int SocialStatusId { get; set; }
 
+        [Display(Name = "Лицевой счет, либо номер договора")]
+        public string NumberPack { get; set; }
 
         [Required(ErrorMessage = "Введите Текст обращения")]
         [Display(Name = "Текст обращения")]

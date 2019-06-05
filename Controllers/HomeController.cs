@@ -69,6 +69,7 @@ namespace ApplicationsFromCitizens.Controllers
                             $" <b>Способ получения ответа:</b> {getAnswer} <br>" +
                             $" <b>Адресной электронной почты:</b> {m.ApplicationForm.Email} <br>" +
                             $" <b>Телефон или сотовый:</b> {m.ApplicationForm.Mobile} <br>" +
+                            $" <b>Лицевой счет:</b> {m.ApplicationForm.NumberPack} <br>" +
                             $" <b>Текст обращения:</b> {m.ApplicationForm.Message}";
                         _sendMail.SendCustom(sub, bodyMail, email, m.ApplicationForm.Email);
 

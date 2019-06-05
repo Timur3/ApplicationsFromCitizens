@@ -20,8 +20,8 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></span>
-                    @Html.DropDownListFor(model => model.ApplicationForm.GetAnswerListId, Model.GetAnswerList, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
                     @Html.DropDownListFor(model => model.ApplicationForm.GetAnswerListId, Model.GetAnswerList, new { @class = "hidden" })
+                    @Html.DropDownListFor(model => model.ApplicationForm.GetAnswerListId, Model.GetAnswerList, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
                 </div>
             </div>
         </div>
@@ -31,8 +31,8 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
-                    @Html.EditorFor(model => model.ApplicationForm.Email, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                     @Html.EditorFor(model => model.ApplicationForm.Email, new { htmlAttributes = new { @type = "hidden" } })
+                    @Html.EditorFor(model => model.ApplicationForm.Email, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                 </div>
             </div>
         </div>
@@ -42,8 +42,8 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-                    @Html.EditorFor(model => model.ApplicationForm.FamilyName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                     @Html.EditorFor(model => model.ApplicationForm.FamilyName, new { htmlAttributes = new { @type = "hidden" } })
+                    @Html.EditorFor(model => model.ApplicationForm.FamilyName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                 </div>
             </div>
         </div>
@@ -52,8 +52,8 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-                    @Html.EditorFor(model => model.ApplicationForm.Name, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                     @Html.EditorFor(model => model.ApplicationForm.Name, new { htmlAttributes = new { @type = "hidden" } })
+                    @Html.EditorFor(model => model.ApplicationForm.Name, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                 </div>
             </div>
         </div>
@@ -63,8 +63,8 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-                    @Html.EditorFor(model => model.ApplicationForm.MiddleName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                     @Html.EditorFor(model => model.ApplicationForm.MiddleName, new { htmlAttributes = new { @type = "hidden" } })
+                    @Html.EditorFor(model => model.ApplicationForm.MiddleName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                 </div>
             </div>
         </div>
@@ -74,8 +74,8 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></span>
-                    @Html.EditorFor(model => model.ApplicationForm.Mobile, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                     @Html.EditorFor(model => model.ApplicationForm.Mobile, new { htmlAttributes = new { @type = "hidden" } })
+                    @Html.EditorFor(model => model.ApplicationForm.Mobile, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                 </div>
             </div>
         </div>
@@ -85,8 +85,19 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-                    @Html.DropDownListFor(model => model.ApplicationForm.SocialStatusId, Model.GetSocialStatusList, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
                     @Html.DropDownListFor(model => model.ApplicationForm.SocialStatusId, Model.GetSocialStatusList, new { @class = "hidden" })
+                    @Html.DropDownListFor(model => model.ApplicationForm.SocialStatusId, Model.GetSocialStatusList, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApplicationForm.NumberPack, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span></span>
+                    @Html.EditorFor(model => model.ApplicationForm.NumberPack, new { htmlAttributes = new { @type = "hidden" } })
+                    @Html.EditorFor(model => model.ApplicationForm.NumberPack, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
                 </div>
             </div>
         </div>
@@ -94,8 +105,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ApplicationForm.Message, htmlAttributes: new { @class = "control-label col-md-3" })
             <div class="col-md-4">
-                @Html.DisplayFor(model => model.ApplicationForm.Message, new { @class = "form-control", @rows = 12 })
                 @Html.TextAreaFor(model => model.ApplicationForm.Message, new { @class = "hidden" })
+                @Html.DisplayFor(model => model.ApplicationForm.Message, new { @class = "form-control", @rows = 12 })
             </div>
         </div>
 
