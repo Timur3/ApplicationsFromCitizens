@@ -59,7 +59,7 @@ namespace Helpers
             Mail.To.Clear();
             Mail.To.Add(email);
             Mail.Subject = "Напоминание пароля";
-            Mail.Body = "Ваш пароль для доступа в личный кабинет http://kabinet.hm-ges.ru: " + passw;
+            Mail.Body = "Ваш пароль для доступа в личный кабинет http://lk.mp-ges.ru: " + passw;
             Mail.Priority = MailPriority.High;
 
             Client.Send(Mail);
